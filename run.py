@@ -1,6 +1,4 @@
-# Your code goes here.
-# You can delete these comments, but do not change the name of this file
-# Write your code to expect a terminal of 80 characters wide and 24 rows high
+import NumPy as np
 
 def players_name():
     player_one = input("Player one, what is your name?\n")
@@ -9,4 +7,7 @@ def players_name():
     return welcome_message
 
 players_name()
+
+
+
 
