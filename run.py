@@ -23,40 +23,28 @@ def create_board():
 
 board = create_board()
 
+
+def validate_data(value):
+        try:
+            int(value)
+            if int(value) > 6:
+                raise ValueError(f"You can only choose a column from 0 and upto 6")
+        except ValueError as e:
+            print(f"Invalid data: {e}, please try again.\n")
+           
+
 game_over = False
 turn = 0
 
 while not game_over:
     
         if turn == 0:  
-            player_choice_one = int(input("Player One choose a column to drop a piece (0-6):\n"))
-            
-            if validate_data(player_choice_one):
-                print("Data is valid!")
+            player_choice_one = input("Player One choose a column to drop a piece (0-6):\n")
+            validate_data(player_choice_one)
+              
         else:
-            player_choice_two = int(input("Player Two choose a column to drop a piece (0-6):\n"))
-            if validate_data(player_choice_two):
-                print("Data is valid!")
-
-        # turn += 1
-        # turn = turn % 2
-
-
-    # def input_validate:
-
-def validate_data(value):
-        try:
-            if value > 6:
-                raise ValueError
-                (
-                    f"You can choose a column from 0 and up to 6"
-                )
-        except ValueError as e:
-            print(f"Invalid data: {e}, please try again.\n")
-            return False
-
-        return True
-
-
-    # def win_game:
+            player_choice_two = input("Player Two choose a column to drop a piece (0-6):\n")
+            validate_data(player_choice_two)
+        turn += 1
+        turn = turn % 2
 
