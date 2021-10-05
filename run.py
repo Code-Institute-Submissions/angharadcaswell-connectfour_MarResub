@@ -31,20 +31,28 @@ def validate_data(value):
                 raise ValueError(f"You can only choose a column from 0 and upto 6")
         except ValueError as e:
             print(f"Invalid data: {e}, please try again.\n")
+            return False
+
+        return True
            
 
 game_over = False
 turn = 0
 
 while not game_over:
-    
-        if turn == 0:  
-            player_choice_one = input("Player One choose a column to drop a piece (0-6):\n")
-            validate_data(player_choice_one)
-              
-        else:
-            player_choice_two = input("Player Two choose a column to drop a piece (0-6):\n")
-            validate_data(player_choice_two)
-        turn += 1
-        turn = turn % 2
+    while True:
+            if turn == 0:  
+                player_choice_one = input("Player One choose a column to drop a piece (0-6):\n")
+                if validate_data(player_choice_one):
+                    print(player_choice_one)
+                    break
+                
+            else:
+                player_choice_two = input("Player Two choose a column to drop a piece (0-6):\n")
+                if validate_data(player_choice_two):
+                    print(player_choice_two)
+                    break
+
+    turn += 1
+    turn = turn % 2
 
