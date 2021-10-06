@@ -2,7 +2,8 @@ import numpy as np
 import sys
 from termcolor import colored, cprint
 
-
+ROW_NUM = 6
+COL_NUM = 7
 
 def open_message():
     cprint("#######################################", 'blue')
@@ -43,7 +44,7 @@ def create_board():
     Create grid 6x7 
     """
     global board
-    board = np.zeros((6, 7))
+    board = np.zeros((ROW_NUM, COL_NUM))
     return board
 
 
@@ -71,7 +72,7 @@ def validate_data(value):
 
 def next_row(board, col): 
         """ looking for the next available row on the column that the user selected. An available row will have a value fo 0 which will be chnaged to the users number"""       
-        for row in range(6):
+        for row in range(ROW_NUM):
             if board[row][col] == 0:
                 return row
         
@@ -104,7 +105,7 @@ while not game_over:
                 user_choice = input(f"{player_two.capitalize()} choose a column to drop a piece (0-6):\n")
                 col = int(user_choice)
                 if validate_data(user_choice):
-                    if board[5][col] == 0:
+                    if board[ROW_NUM-1][col] == 0:
                         row = next_row(board, col)
                         board[row][col] = 2
                         break
