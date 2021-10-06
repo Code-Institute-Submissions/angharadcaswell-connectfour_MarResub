@@ -71,13 +71,37 @@ def validate_data(value):
         return True
 
 def next_row(board, col): 
-        """ looking for the next available row on the column that the user selected. An available row will have a value fo 0 which will be chnaged to the users number"""       
+        """ looking for the next available row on the column that the user selected. An available row will have a value fo 0 which will be changed to the users number"""       
         for row in range(ROW_NUM):
             if board[row][col] == 0:
                 return row
         
+def winning_move(board, piece):
+        """ Credit for code: Keith Galli - Youtube """
+        """ Check horizontal locations for win"""
+        for c in range(COL_NUM-3):
+            for r in range(ROW_NUM):
+                if board[r][c] == piece and board[r][c+1] == piece and board[r][c+2] == piece and board[r][c+3] == piece:
+                    return True
 
-        
+        """ Check vertical locations for win """
+        for c in range(COL_NUM):
+            for r in range(ROW_NUM-3):
+                if board[r][c] == piece and board[r+1][c] == piece and board[r+2][c] == piece and board[r+3][c] == piece:
+                    return True
+
+        """ Check positively sloped diaganols """
+        for c in range(COL_NUM-3):
+            for r in range(ROW_NUM-3):
+                if board[r][c] == piece and board[r+1][c+1] == piece and board[r+2][c+2] == piece and board[r+3][c+3] == piece:
+                    return True
+
+        """ Check negatively sloped diaganols """
+        for c in range(COL_NUM-3):
+            for r in range(3, ROW_NUM):
+                if board[r][c] == piece and board[r-1][c+1] == piece and board[r-2][c+2] == piece and board[r-3][c+3] == piece:
+                    return True
+            
 game_over = False
 turn = 0
 
@@ -95,9 +119,16 @@ while not game_over:
                     if board[5][col] == 0:
                         row = next_row(board, col)
                         board[row][col] = 1
-                        break
+                        
                     else:
                          cprint("uh oh! Choose a column that isn't full of pieces", 'red')
+                
+                if winning_move(board, 1):
+                    cprint(f"{player_one.capitalize()} wins!!!!", "green")
+                    cprint(f"{player_two.capitalize()} unlucky!!!!", "red")
+                    game_over = True
+                break
+
                     
                     
                 
@@ -108,15 +139,33 @@ while not game_over:
                     if board[ROW_NUM-1][col] == 0:
                         row = next_row(board, col)
                         board[row][col] = 2
-                        break
+                        
                     else:
                          cprint("uh oh! Choose a column that isn't full of pieces", 'red')
+
+                if winning_move(board, 2):
+                    cprint(f"{player_two.capitalize()} wins!!!!", "green")
+                    cprint(f"Unlucky, {player_one.capitalize()}!!!", "red")
+                    game_over = True
+                break
                     
                
                
     print(np.flip(board, 0))           
     turn += 1
     turn = turn % 2
+
+    if game_over:
+        cprint("*************************", 'yellow')
+        cprint("*************************", 'yellow')
+        cprint("   G A M E    O V E R", 'yellow')
+        cprint("*************************", 'yellow')
+        cprint("*************************", 'yellow')
+        continue_game = input("Would you like to play again? Y/N \n")
+        if continue_game == "Y":
+            start_game()
+        else:
+            print("Thank you for playing!")
 
 
 
