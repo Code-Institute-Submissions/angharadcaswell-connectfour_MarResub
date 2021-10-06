@@ -1,5 +1,7 @@
 import numpy as np
 
+
+
 def open_message():
     print("#######################################")
     print("#                                     #")
@@ -38,8 +40,11 @@ def create_board():
     """
     Create grid 6x7 
     """
+    global board
     board = print(np.zeros((6, 7)))
     return board
+
+
 
 
 def start_game():
@@ -48,6 +53,8 @@ def start_game():
     create_board()
 
 start_game()
+
+
 
 def validate_data(value):
         try:
@@ -59,8 +66,9 @@ def validate_data(value):
             return False
 
         return True
-           
 
+
+        
 game_over = False
 turn = 0
 
@@ -70,19 +78,31 @@ while not game_over:
     """
     while True:
             if turn == 0:  
-                player_choice_one = input(f"{player_one.capitalize()}, choose a column to drop a piece (0-6):\n")
-                if validate_data(player_choice_one):
+                user_choice = input(f"{player_one.capitalize()}, choose a column to drop a piece (0-6):\n")
+                if validate_data(user_choice):
                     break
                     
                 
             else:
-                player_choice_two = input(f"{player_two.capitalize()} choose a column to drop a piece (0-6):\n")
-                if validate_data(player_choice_two):
+                user_choice = input(f"{player_two.capitalize()} choose a column to drop a piece (0-6):\n")
+                if validate_data(user_choice):
                     break
                     
                 
     turn += 1
     turn = turn % 2
+       
+    def next_row(board, user_choice): 
+        # for row in board:
+        #     if board[(row)][(user_choice)] == 0:
+        #         return row
+        print(board)
+        print(user_choice)
+
+    next_row(board, user_choice)
+
+
+
 
 
 
