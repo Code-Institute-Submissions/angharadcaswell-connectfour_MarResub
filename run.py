@@ -1,9 +1,11 @@
 import numpy as np
+import sys
+from termcolor import colored, cprint
 
 
 
 def open_message():
-    print("#######################################")
+    cprint("#######################################", 'blue')
     print("#                                     #")
     print("#  W E L C O M E  T O  C O N N E C T  #")
     print("#                                     #")
@@ -16,7 +18,7 @@ def open_message():
     print("#                    **               #")
     print("#                    **               #")
     print("#                                     #")
-    print("#######################################\n")
+    cprint("#######################################", 'blue')
 
 
 
@@ -62,7 +64,7 @@ def validate_data(value):
             if int(value) > 6:
                 raise ValueError(f"You can only choose a column from 0 and upto 6")
         except ValueError as e:
-            print(f"Invalid data: {e}, please try again.\n")
+            cprint(f"Invalid data: {e}, please try again.\n", 'red')
             return False
 
         return True
@@ -94,7 +96,7 @@ while not game_over:
                         board[row][col] = 1
                         break
                     else:
-                         print("uh oh! Choose a column that isn't full of pieces")
+                         cprint("uh oh! Choose a column that isn't full of pieces", 'red')
                     
                     
                 
@@ -107,7 +109,7 @@ while not game_over:
                         board[row][col] = 2
                         break
                     else:
-                         print("uh oh! Choose a column that isn't full of pieces")
+                         cprint("uh oh! Choose a column that isn't full of pieces", 'red')
                     
                
                
