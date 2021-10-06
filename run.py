@@ -41,9 +41,8 @@ def create_board():
     Create grid 6x7 
     """
     global board
-    board = print(np.zeros((6, 7)))
+    board = np.zeros((6, 7))
     return board
-
 
 
 
@@ -51,6 +50,7 @@ def start_game():
     open_message()
     players_name()
     create_board()
+    print(board)
 
 start_game()
 
@@ -67,6 +67,12 @@ def validate_data(value):
 
         return True
 
+def next_row(board, col): 
+        """ looking for the next available row on the column that the user selected. An available row will have a value fo 0 which will be chnaged to the users number"""       
+        for row in range(6):
+            if board[row][col] == 0:
+                return row
+        
 
         
 game_over = False
@@ -79,27 +85,26 @@ while not game_over:
     while True:
             if turn == 0:  
                 user_choice = input(f"{player_one.capitalize()}, choose a column to drop a piece (0-6):\n")
+                col = int(user_choice)
                 if validate_data(user_choice):
+                    if board[5][col] == 0:
+                        row = next_row(board, col)
+                        new_piece = int(board[row][col])
+                        
+                        
                     break
                     
                 
             else:
                 user_choice = input(f"{player_two.capitalize()} choose a column to drop a piece (0-6):\n")
+                col = int(user_choice)
                 if validate_data(user_choice):
                     break
                     
                 
     turn += 1
     turn = turn % 2
-       
-    def next_row(board, user_choice): 
-        # for row in board:
-        #     if board[(row)][(user_choice)] == 0:
-        #         return row
-        print(board)
-        print(user_choice)
 
-    next_row(board, user_choice)
 
 
 
