@@ -81,6 +81,8 @@ turn = 0
 while not game_over:
     """
     Ask user 1 and 2 for the choice. Send the values to the validate function to check they are valid.
+    Check the colum selected still has a 0 at the top and is therefore not full of pieces. 
+    Link to new row function to find the next available row for the user to place a piece. 
     """
     while True:
             if turn == 0:  
@@ -89,19 +91,27 @@ while not game_over:
                 if validate_data(user_choice):
                     if board[5][col] == 0:
                         row = next_row(board, col)
-                        new_piece = int(board[row][col])
-                        
-                        
-                    break
+                        board[row][col] = 1
+                        break
+                    else:
+                         print("uh oh! Choose a column that isn't full of pieces")
+                    
                     
                 
             else:
                 user_choice = input(f"{player_two.capitalize()} choose a column to drop a piece (0-6):\n")
                 col = int(user_choice)
                 if validate_data(user_choice):
-                    break
+                    if board[5][col] == 0:
+                        row = next_row(board, col)
+                        board[row][col] = 2
+                        break
+                    else:
+                         print("uh oh! Choose a column that isn't full of pieces")
                     
-                
+               
+               
+    print(np.flip(board, 0))           
     turn += 1
     turn = turn % 2
 
