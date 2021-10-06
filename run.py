@@ -119,6 +119,7 @@ while not game_over:
                     if board[5][col] == 0:
                         row = next_row(board, col)
                         board[row][col] = 1
+                        print(np.flip(board, 0)) 
                         
                     else:
                          cprint("uh oh! Choose a column that isn't full of pieces", 'red')
@@ -139,6 +140,7 @@ while not game_over:
                     if board[ROW_NUM-1][col] == 0:
                         row = next_row(board, col)
                         board[row][col] = 2
+                        print(np.flip(board, 0)) 
                         
                     else:
                          cprint("uh oh! Choose a column that isn't full of pieces", 'red')
@@ -148,10 +150,7 @@ while not game_over:
                     cprint(f"Unlucky, {player_one.capitalize()}!!!", "red")
                     game_over = True
                 break
-                    
-               
-               
-    print(np.flip(board, 0))           
+                               
     turn += 1
     turn = turn % 2
 
