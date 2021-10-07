@@ -1,31 +1,79 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# CONNECT fOUR
+[Link to game](https://connect-four-by-ange.herokuapp.com//)
+![Mock up of home](readmeimages/mockup.png)
 
-Welcome Angharad Caswell,
 
-This is the Code Institute student template for deploying your third portfolio project, the Python command-line project. The last update to this file was: **August 17, 2021**
+# 1. Project Goals
+Two players to be able to play Connect Four and for there to be one winner. The game is to be played in the Python Terminal and hosted on Heroku. 
 
-## Reminders
+The aim of the game is to be the first to get 4 pieces in a row. The pieces can be horizontal, vertical or diagonal. 
 
-* Your code must be placed in the `run.py` file
-* Your dependencies must be placed in the `requirements.txt` file
-* Do not edit any of the other files or your code may not deploy properly
+# #  How to play:
+1. Each player enters their name.
+2. Player one selects a coloum (0-6) on the board to drop a piece. 
 
-## Creating the Heroku app
 
-When you create the app, you will need to add two buildpacks from the _Settings_ tab. The ordering is as follows:
+# 2. User Experience
 
-1. `heroku/python`
-2. `heroku/nodejs`
+## 2.1 User Stories 
+1. As a user, I want to be able to play a digital version of Connect Four. 
+2. As a user, I want instructions on how to play the game.
+3. As a user, I want to feel excited to play when I start the game.
+4. As a user, I need it to be clear whose turn is next. 
+5. As a user, I want to celebrate if I win. 
+6. As a user, I want the option to restart or quit the game easier when the game is over. 
+7. As a user, I want to know if I have made an error and recieve feedback on ho to correct this. 
+8. As a user, I want the game to be easy to navigate and play. 
+9. As a user, I want to know who has won the game. 
 
-You must then create a _Config Var_ called `PORT`. Set this to `8000`
+# 3. Features
 
-If you have credentials, such as in the Love Sandwiches project, you must create another _Config Var_ called `CREDS` and paste the JSON into the value field.
+## 3.1 All features
 
-Connect your GitHub repository and deploy as normal.
+1. Homepage
+* Where the game is played
+* Link to help page
+* Link to refresh game
+2. Dice roll area
+* Button to roll dice
+3. Card flip area
+* 9 cards to be clicked and "closed" by the user 
+4. Help page
+* "How to play" rules and example of game with images.
+5. Refresh button
+* Button to restart the game without finishing the game.
+6. Shut the Box logo
 
-## Constraints
+## 3.2 Features to implement:
+1. 2 player game
+2. Play against the computer
+3. Scoreboard and user name
+4. Computer to calculate when the user has lost.
 
-The deployment terminal is set to 80 columns by 24 rows. That means that each line of text needs to be 80 characters or less otherwise it will be wrapped onto a second line.
 
------
-Happy coding!
+
+# 4. Technologies used 
+* [Python](https://en.wikipedia.org/wiki/Python_(programming_language)) - Content and structure
+* [Gitpod](https://www.gitpod.io/) - Coding workspace
+* [Github/ Github pages](https://github.com/)- Commit my code
+* [Am I responsive?](http://ami.responsivedesign.is/#)- To see display the website as mock ups  
+
+# 5. Testing 
+ - ### Used [W3C HTML validator](https://validator.w3.org/#validate_by_input) to check Python content.
+![home validated]()
+- ### Validate testing
+- ### temrinal and heroku testing
+
+## 6. Deployment
+
+
+
+## 7. Credits
+
+## Media
+
+
+
+## Acknowledgments:
+* My mentor [Precious](https://www.linkedin.com/in/precious-ijege-908a00168/?originalSubdomain=ng) for your help and guidance. 
+* [Code Institute](https://codeinstitute.net/) student support, slack community and tutorials. 
