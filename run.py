@@ -55,13 +55,16 @@ def start_game():
 start_game()
 
 def validate_data(value):
+        """ Validate data by checking for interger and number <= 6"""
         try:
             int(value)
             if int(value) > 6:
                 raise ValueError(f"You can only choose a column from 0 and upto 6")
+            
         except ValueError as e:
             cprint(f"Invalid data: {e}, please try again.\n", 'red')
             return False
+
         return True
 
 def next_row(board, col): 
@@ -113,14 +116,16 @@ while not game_over:
                     if board[5][col]==0:
                         row = next_row(board, col)
                         board[row][col]=1
-                        print(np.flip(board, 0))                         
+                        print(np.flip(board, 0)) 
+                        break                         
                     else:
-                         cprint("uh oh! Choose a column that isn't full of pieces", 'red')               
+                         cprint("uh oh! Choose a column that isn't full of pieces", 'red')
+
                 if winning_move(board, 1):
                     cprint(f"{player_one.capitalize()} wins!!!!", "green")
                     cprint(f"{player_two.capitalize()} unlucky!!!!", "red")
                     game_over=True
-                break                
+                            
             else:
                 user_choice = input(f"{player_two.capitalize()} choose a column to drop a piece (0-6):\n")                
                 if validate_data(user_choice):
@@ -129,6 +134,7 @@ while not game_over:
                         row = next_row(board, col)
                         board[row][col] = 2
                         print(np.flip(board, 0)) 
+                        break 
                     else:
                          cprint("uh oh! Choose a column that isn't full of pieces", 'red')
 
@@ -136,7 +142,7 @@ while not game_over:
                     cprint(f"{player_two.capitalize()} wins!!!!", "green")
                     cprint(f"Unlucky, {player_one.capitalize()}!!!", "red")
                     game_over=True
-                break                              
+                                            
     turn+=1
     turn=turn % 2
     if game_over:
