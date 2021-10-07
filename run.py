@@ -34,7 +34,7 @@ def players_name():
     global player_two
     player_two = input("Player two, what is your name?\n")
     print("-" * 40)
-    welcome_message = print(f"Welcome {player_one} and {player_two}, lets play Connect Four!\n\n How to play:\n\n ##Take it in turns to add a piece to a column. When you have 4 pieces next to eachtoher you win! \n\n ##The pieces can be vertical, horizontal or diagonal. \n\n Good luck! \n\n\n\n" )
+    welcome_message = print(f"Welcome {player_one} and {player_two}, lets play Connect Four!\n\n How to play:\n\n ##Take it in turns to add a piece to a column. \n When you have 4 pieces next to eachtoher you win! \n\n ##The pieces can be vertical, horizontal or diagonal. \n\n Good luck! \n\n\n\n" )
     return welcome_message
 
 

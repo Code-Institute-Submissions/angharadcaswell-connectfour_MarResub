@@ -1,16 +1,22 @@
 # CONNECT fOUR
-[Link to game](https://connect-four-by-ange.herokuapp.com//)
-![Mock up of home](readmeimages/mockup.png)
+![Mock up of home](readmeimages/homescreen.png)
 
+[Link to LIVE game](https://connect-four-by-ange.herokuapp.com//)
 
 # 1. Project Goals
 Two players to be able to play Connect Four and for there to be one winner. The game is to be played in the Python Terminal and hosted on Heroku. 
 
 The aim of the game is to be the first to get 4 pieces in a row. The pieces can be horizontal, vertical or diagonal. 
 
-# #  How to play:
+##  How to play:
 1. Each player enters their name.
 2. Player one selects a coloum (0-6) on the board to drop a piece. 
+3. The piece will be marked on the board with a "1" or "2" depending on which player's turn it is. 
+4. You can not add a piece to a full column. 
+5. The players take it in turns to drop their pieces. 
+6. The first player to get four in a row wins!!!
+
+[Read more about the physical game](https://en.wikipedia.org/wiki/Connect_Four)
 
 
 # 2. User Experience
@@ -30,25 +36,15 @@ The aim of the game is to be the first to get 4 pieces in a row. The pieces can 
 
 ## 3.1 All features
 
-1. Homepage
-* Where the game is played
-* Link to help page
-* Link to refresh game
-2. Dice roll area
-* Button to roll dice
-3. Card flip area
-* 9 cards to be clicked and "closed" by the user 
-4. Help page
-* "How to play" rules and example of game with images.
-5. Refresh button
-* Button to restart the game without finishing the game.
-6. Shut the Box logo
+1. Welcome page:
+![welcome page](readmeimages/welcome.png)
+## Welcomes the players and asks for their names.
 
+2. 
 ## 3.2 Features to implement:
-1. 2 player game
-2. Play against the computer
-3. Scoreboard and user name
-4. Computer to calculate when the user has lost.
+1. Play agianst the computer
+2. Users to recieve a message if the game is a draw. 
+3. Score Board. 
 
 
 
