@@ -60,41 +60,46 @@ The aim of the game is to be the first to get 4 pieces in a row. The pieces can 
 - If they select Y it will take them to the start. 
 - If they select N it will thank them for playing. 
 
-5. Error 1: Interger:
-![errorone](readmeimages/errorone.png)
-- 
-
-
-
 
 ## 3.2 Features to implement:
 1. Play agianst the computer
 2. Users to recieve a message if the game is a draw. 
 3. Score Board. 
+4. Colour markers for players.
 
 
 
 # 4. Technologies used 
 * [Python](https://en.wikipedia.org/wiki/Python_(programming_language)) - Content and structure
+* [Heroku](https://id.heroku.com/login) - Host
 * [Gitpod](https://www.gitpod.io/) - Coding workspace
 * [Github/ Github pages](https://github.com/)- Commit my code
 * [Am I responsive?](http://ami.responsivedesign.is/#)- To see display the website as mock ups  
+* [NumPy](https://numpy.org/) - To create a matrix for the board. 
+* [termcolor](https://pypi.org/project/termcolor/) - To change the colors of the error messages and the welcome/end message. 
+
+
 
 # 5. Testing 
- - ### Used [W3C HTML validator](https://validator.w3.org/#validate_by_input) to check Python content.
-![home validated]()
-- ### Validate testing
-- ### temrinal and heroku testing
+ -  Used [PEP8 Python Validator](https://validator.w3.org/#validate_by_input) to check Python content.
+- Validate user input tested for intergers, full colums and numbers over 6. 
+- Tested in Gitpod terminal and Heroku. 
 
 ## 6. Deployment
+
+Steps for deployment:
+1. Clone this repository in Github
+2. Create [Heroku](https://dashboard.heroku.com/apps) app
+3. Under settings tab, add Python and Node.js buildpacks in this order
+4. Under settings tab, add PORT and 8000 to config vars.
+5. Under deploy tab, link the Heroku app to this repository.
+6. Deploy app
 
 
 
 ## 7. Credits
 
-## Media
-
-
+* Keith Galli - Code to check if player has won. 
 
 ## Acknowledgments:
 * My mentor [Precious](https://www.linkedin.com/in/precious-ijege-908a00168/?originalSubdomain=ng) for your help and guidance. 
