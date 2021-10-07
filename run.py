@@ -64,8 +64,9 @@ def validate_data(value):
             int(value)
             if int(value) > 6:
                 raise ValueError(f"You can only choose a column from 0 and upto 6")
+        
         except ValueError as e:
-            cprint(f"Invalid data: {e}, please try again.\n", 'red')
+            print(f"Invalid data: {e}, please try again.\n")
             return False
 
         return True
@@ -114,7 +115,6 @@ while not game_over:
     while True:
             if turn == 0:  
                 user_choice = input(f"{player_one.capitalize()}, choose a column to drop a piece (0-6):\n")
-                col = int(user_choice)
                 if validate_data(user_choice):
                     if board[5][col] == 0:
                         row = next_row(board, col)

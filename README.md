@@ -38,9 +38,35 @@ The aim of the game is to be the first to get 4 pieces in a row. The pieces can 
 
 1. Welcome page:
 ![welcome page](readmeimages/welcome.png)
-## Welcomes the players and asks for their names.
+- Welcomes the players and asks for their names.
 
-2. 
+2. Instructions & first go:
+![instructions page](readmeimages/instructions.png)
+- Give instructions on ho to play Connect four to the players. 
+- Print the board for the first player to use. 
+- Ask the first player for their selection. They can choose a column from 0 to 6.
+- The player needs to type the number into the terminal.
+
+3. Players turn:
+![piece drop](readmeimages/piecedrop.png)
+- The players take it in turns to drop their pieces. 
+- As you can see in the image above, Ange's pieces are "1" and Tom's pieces are "2".
+
+4. Player wins:
+![win](readmeimages/win.png)
+- When a player gets 4 pieces in a row the game is over. 
+- The terminal prints who the winner is.
+- The terminal asks the players if they would like to play again. 
+- If they select Y it will take them to the start. 
+- If they select N it will thank them for playing. 
+
+5. Error 1: Interger:
+![errorone](readmeimages/errorone.png)
+- 
+
+
+
+
 ## 3.2 Features to implement:
 1. Play agianst the computer
 2. Users to recieve a message if the game is a draw. 
