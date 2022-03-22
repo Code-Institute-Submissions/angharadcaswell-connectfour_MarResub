@@ -40,7 +40,6 @@ def players_name():
                             " next to each other you win!"
                             " \n\n ##The pieces can be vertical, horizontal"
                             " or diagonal.\n\n Good luck! \n\n\n\n")
-    print("Hello")
     return welcome_message
     
 
