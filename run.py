@@ -41,7 +41,6 @@ def players_name():
                             " \n\n ##The pieces can be vertical, horizontal"
                             " or diagonal.\n\n Good luck! \n\n\n\n")
     return welcome_message
-    
 
 
 def create_board():
@@ -90,7 +89,7 @@ def winning_move(board, piece):
     """ Check horizontal locations for win"""
     for c in range(COL_NUM-3):
         for r in range(ROW_NUM):
-            if board[r][c] == piece and board[r][c+1] == piece and board[r][c+2] == piece and board[r][c+3] == piece: 
+            if board[r][c] == piece and board[r][c+1] == piece and board[r][c+2] == piece and board[r][c+3] == piece:
                 return True
 
     """ Check vertical locations for win """
@@ -110,7 +109,6 @@ def winning_move(board, piece):
         for r in range(3, ROW_NUM):
             if board[r][c] == piece and board[r-1][c+1] == piece and board[r-2][c+2] == piece and board[r-3][c+3] == piece:
                 return True
-    
 
 
 """ End of Youtube Code """
@@ -120,8 +118,8 @@ turn = 0
 while not game_over:
     """
     Ask user 1 and 2 for the choice. Send the values to the validate function to check they are valid.
-    Check the colum selected still has a 0 at the top and is therefore not full of pieces. 
-    Link to new row function to find the next available row for the user to place a piece. 
+    Check the colum selected still has a 0 at the top and is therefore not full of pieces.
+    Link to new row function to find the next available row for the user to place a piece.
     """
     while True:
         if turn == 0:
@@ -141,7 +139,7 @@ while not game_over:
                     break
                 else:
                     cprint("uh oh! Choose a column that isn't full of pieces", "red")
-            
+
         else:
             user_choice = input(
                 f"{player_two.capitalize()} choose a column to drop a piece (0-6):\n")
@@ -175,4 +173,3 @@ while not game_over:
             start_game()
         else:
             print("Thank you for playing!")
-
