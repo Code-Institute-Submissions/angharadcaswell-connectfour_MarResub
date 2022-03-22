@@ -105,6 +105,7 @@ The following issues were discovered during user testing. Users were asked to pl
 
 ## 5.3 Code Validation
 - Used [PEP8 Python Validator](http://pep8online.com/) to check Python content.
+![PEP8 Validator](readmeimages/pep.png)
 
 ## 5.4 Testing error messages 
 I tested my error messages were showing correctly for validating user inputs. I also wanted to make sure that the flow of the game wasn't disrupted. I checked for the following:
