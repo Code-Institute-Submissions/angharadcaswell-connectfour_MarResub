@@ -103,6 +103,8 @@ The following issues were discovered during user testing. Users were asked to pl
 - A user noticed you can input an empty username. This caused issues for players to be able to see whose turn it was.
 - **Solution: Added if statement to check the username uses letter and wasn't empty**
 
+[User Stories Tested](userstories.md)
+
 ## 5.3 Code Validation
 - Used [PEP8 Python Validator](http://pep8online.com/) to check Python content.
 ![PEP8 Validator](readmeimages/pep.png)
