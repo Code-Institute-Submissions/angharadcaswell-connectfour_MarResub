@@ -118,64 +118,70 @@ def winning_move(board, piece):
 
 
 """ End of Youtube Code """
-game_over = False
-turn = 0
 
-while not game_over:
+def main():
     """
-    Ask user 1 and 2 for the choice. Send the values to the validate function to check they are valid.
-    Check the colum selected still has a 0 at the top and is therefore not full of pieces.
-    Link to new row function to find the next available row for the user to place a piece.
+    This is the main function of the game where all tasks are carried out
     """
-    while True:
-        if turn == 0:
-            user_choice = input(
-                f"{player_one.capitalize()}, choose a column to drop a piece (0-6):\n")
-            if validate_data(user_choice):
-                col = int(user_choice)
-                if board[5][col] == 0:
-                    row = next_row(board, col)
-                    board[row][col] = 1
-                    print(np.flip(board, 0))
-                    winning_move(board, 1)
-                    if winning_move(board, 1):
-                        cprint(f"{player_one.capitalize()} wins!!!!", "green")
-                        cprint(f"{player_two.capitalize()} unlucky!!!!", "red")
-                        game_over = True
-                    break
-                else:
-                    cprint("uh oh! Choose a column that isn't full of pieces", "red")
+    game_over = False
+    turn = 0
+    while not game_over:
+        """
+        Ask user 1 and 2 for the choice. Send the values to the validate function to check they are valid.
+        Check the colum selected still has a 0 at the top and is therefore not full of pieces.
+        Link to new row function to find the next available row for the user to place a piece.
+        """
+        while True:
+            if turn == 0:
+                user_choice = input(
+                    f"{player_one.capitalize()}, choose a column to drop a piece (0-6):\n")
+                if validate_data(user_choice):
+                    col = int(user_choice)
+                    if board[5][col] == 0:
+                        row = next_row(board, col)
+                        board[row][col] = 1
+                        print(np.flip(board, 0))
+                        winning_move(board, 1)
+                        if winning_move(board, 1):
+                            cprint(f"{player_one.capitalize()} wins!!!!", "green")
+                            cprint(f"{player_two.capitalize()} unlucky!!!!", "red")
+                            game_over = True
+                        break
+                    else:
+                        cprint("uh oh! Choose a column that is full of pieces", "red")
 
-        else:
-            user_choice = input(
-                f"{player_two.capitalize()} choose a column to drop a piece (0-6):\n")
-            if validate_data(user_choice):
-                col = int(user_choice)
-                if board[ROW_NUM-1][col] == 0:
-                    row = next_row(board, col)
-                    board[row][col] = 2
-                    print(np.flip(board, 0))
-                    winning_move(board, 2)
-                    if winning_move(board, 2):
-                        cprint(f"{player_two.capitalize()} wins!!!!", "green")
-                        cprint(f"Unlucky, {player_one.capitalize()}!!!", "red")
-                        game_over = True
-                    break
-                else:
-                    cprint("uh oh! Choose a column that "
-                           "isn't full of pieces", 'red')
+            else:
+                user_choice = input(
+                    f"{player_two.capitalize()} choose a column to drop a piece (0-6):\n")
+                if validate_data(user_choice):
+                    col = int(user_choice)
+                    if board[ROW_NUM-1][col] == 0:
+                        row = next_row(board, col)
+                        board[row][col] = 2
+                        print(np.flip(board, 0))
+                        winning_move(board, 2)
+                        if winning_move(board, 2):
+                            cprint(f"{player_two.capitalize()} wins!!!!", "green")
+                            cprint(f"Unlucky, {player_one.capitalize()}!!!", "red")
+                            game_over = True
+                        break
+                    else:
+                        cprint("uh oh! Choose a column that "
+                            "isn't full of pieces", 'red')
 
-    turn += 1
-    turn = turn % 2
-    if game_over:
-        cprint("*************************", 'yellow')
-        cprint("*************************", 'yellow')
-        cprint("   G A M E    O V E R", 'yellow')
-        cprint("*************************", 'yellow')
-        cprint("*************************", 'yellow')
-        continue_game = input("Would you like to play again? Y/N \n").lower()
-        if continue_game == "y":
-            game_over = False
-            start_game()
-        else:
-            print("Thank you for playing!")
+        turn += 1
+        turn = turn % 2
+        if game_over:
+            cprint("*************************", 'yellow')
+            cprint("*************************", 'yellow')
+            cprint("   G A M E    O V E R", 'yellow')
+            cprint("*************************", 'yellow')
+            cprint("*************************", 'yellow')
+            continue_game = input("Would you like to play again? Y/N \n").lower()
+            if continue_game == "y":
+                game_over = False
+                start_game()
+            else:
+                print("Thank you for playing!")
+
+main()

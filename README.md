@@ -1,4 +1,4 @@
-# CONNECT fOUR
+# CONNECT FOUR
 ![Mock up of home](readmeimages/homescreen.png)
 
 [Link to LIVE game](https://connect-four-by-ange.herokuapp.com//)
@@ -27,8 +27,8 @@ The aim of the game is to be the first to get 4 pieces in a row. The pieces can 
 3. As a user, I want to feel excited to play when I start the game.
 4. As a user, I need it to be clear whose turn is next. 
 5. As a user, I want to celebrate if I win. 
-6. As a user, I want the option to restart or quit the game easier when the game is over. 
-7. As a user, I want to know if I have made an error and recieve feedback on ho to correct this. 
+6. As a user, I want the option to restart or quit the game easily when the game is over. 
+7. As a user, I want to know if I have made an error and recieve feedback on how to correct this. 
 8. As a user, I want the game to be easy to navigate and play. 
 9. As a user, I want to know who has won the game. 
 
@@ -80,12 +80,40 @@ The aim of the game is to be the first to get 4 pieces in a row. The pieces can 
 
 
 
-# 5. Testing 
- -  Used [PEP8 Python Validator](https://validator.w3.org/#validate_by_input) to check Python content.
-- Validate user input tested for intergers, full colums and numbers over 6. 
-- Tested in Gitpod terminal and Heroku. 
+# 5. Testing  
+The game was tested in Gitpod terminal and Heroku by users and myself. The game was also peer reviewed by the Code Institute community. 
 
-## 6. Deployment
+## 5.1 Bugs
+I discovered several bugs whilst building and testing the game. The following bugs were significant in fixing:
+
+- Winning_move function was not being called correctly after previously working.
+- **Solution: Moved the winning_move function call inside the if statement to check the validation of the input.**
+
+- Changing the winning_move function meant the continue game function didn't reset properly.
+- **Solution: I added game_over = False to reset the game.**
+
+## 5.2 User testing:
+The following issues were discovered during user testing. Users were asked to play the game and also to make intentional mistakes to help check for errors.
+- If a user inputed a lowercase y when asked if they would like to play again, the command was not understood and the game would not restart.
+- **Solution: I added .lower() function to their input and lowercase y to the if statement so it no longer mattered how the user entered y and game would restart as requested.**
+
+- User suggested different error message for non int values inputted as it was currently quite techy language.
+- **Solution: Changed the error message to "You must choose a number (0,1,2,3,4,5,6)! Please try again."**
+
+- A user noticed you can input an empty username. This caused issues for players to be able to see whose turn it was.
+- **Solution: Added if statement to check the username uses letter and wasn't empty**
+
+## 5.3 Code Validation
+- Used [PEP8 Python Validator](http://pep8online.com/) to check Python content.
+
+## 5.4 Testing error messages 
+I tested my error messages were showing correctly for validating user inputs. I also wanted to make sure that the flow of the game wasn't disrupted. I checked for the following:
+- If a user inputed something other than an interger.
+- If a user tried to add a counter to a full column. 
+- If a user inputed a number outside of (0,1,2,3,4,5,6)
+
+
+# 6. Deployment
 
 Steps for deployment:
 1. Clone this repository in Github
@@ -97,7 +125,7 @@ Steps for deployment:
 
 
 
-## 7. Credits
+# 7. Credits
 
 * Keith Galli - Code to check if player has won. 
 
