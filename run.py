@@ -29,9 +29,15 @@ def players_name():
     """
     global player_one
     player_one = input("Player one, what is your name?\n")
+    if not player_one.isalpha():
+        cprint(f"You must choose a username", 'red')
+        player_one = input("Player one, what is your name?\n")
     print("-" * 40)
     global player_two
     player_two = input("Player two, what is your name?\n")
+    if not player_two.isalpha():
+        cprint(f"You must choose a username", 'red')
+        player_two = input("Player two, what is your name?\n")
     print("-" * 40)
     welcome_message = print(f"Welcome {player_one} and {player_two},"
                             "lets play Connect Four!"
