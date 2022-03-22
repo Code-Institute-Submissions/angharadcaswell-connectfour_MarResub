@@ -1,5 +1,4 @@
 import numpy as np
-import sys
 from termcolor import colored, cprint
 
 ROW_NUM = 6
@@ -64,8 +63,6 @@ def start_game():
     create_board()
     print(board)
 
-start_game()
-
 
 def validate_data(value):
     """ Validate data by checking for interger and number <= 6"""
@@ -75,7 +72,8 @@ def validate_data(value):
             raise ValueError(f"You can only choose a "
                              "column from 0 and upto 6")
     except ValueError as e:
-        cprint(f"You must choose a number (0,1,2,3,4,5,6)! Please try again.\n", 'red')
+        cprint(f"You must choose a number (0,1,2,3,4,5,6)!"
+               "Please try again. Invalid data: {e}\n", 'red')
         return False
 
     return True
@@ -95,46 +93,59 @@ def winning_move(board, piece):
     """ Check horizontal locations for win"""
     for c in range(COL_NUM-3):
         for r in range(ROW_NUM):
-            if board[r][c] == piece and board[r][c+1] == piece and board[r][c+2] == piece and board[r][c+3] == piece:
+            if board[r][c] == piece and board[r][c+1] == piece \
+             and board[r][c+2] == piece and board[r][c+3] == piece:
                 return True
 
     """ Check vertical locations for win """
     for c in range(COL_NUM):
         for r in range(ROW_NUM-3):
-            if board[r][c] == piece and board[r+1][c] == piece and board[r+2][c] == piece and board[r+3][c] == piece:
+            if board[r][c] == piece and board[r+1][c] == piece \
+             and board[r+2][c] == piece and board[r+3][c] == piece:
                 return True
 
     """ Check positively sloped diaganols """
     for c in range(COL_NUM-3):
         for r in range(ROW_NUM-3):
-            if board[r][c] == piece and board[r+1][c+1] == piece and board[r+2][c+2] == piece and board[r+3][c+3] == piece:
+            if board[r][c] == piece and board[r+1][c+1] == piece \
+             and board[r+2][c+2] == piece and board[r+3][c+3] == piece:
                 return True
 
     """ Check negatively sloped diaganols """
     for c in range(COL_NUM-3):
         for r in range(3, ROW_NUM):
-            if board[r][c] == piece and board[r-1][c+1] == piece and board[r-2][c+2] == piece and board[r-3][c+3] == piece:
+            if board[r][c] == piece and board[r-1][c+1] == piece \
+             and board[r-2][c+2] == piece and board[r-3][c+3] == piece:
                 return True
 
 
 """ End of Youtube Code """
 
+
 def main():
     """
     This is the main function of the game where all tasks are carried out
     """
+    open_message()
+    players_name()
+    create_board()
+    print(board)
     game_over = False
     turn = 0
     while not game_over:
         """
-        Ask user 1 and 2 for the choice. Send the values to the validate function to check they are valid.
-        Check the colum selected still has a 0 at the top and is therefore not full of pieces.
-        Link to new row function to find the next available row for the user to place a piece.
+        Ask user 1 and 2 for the choice. Send the values to the validate
+        function to check they are valid.
+        Check the colum selected still has a 0 at the top and is
+        therefore not full of pieces.
+        Link to new row function to find the next available row
+        for the user to place a piece.
         """
         while True:
             if turn == 0:
                 user_choice = input(
-                    f"{player_one.capitalize()}, choose a column to drop a piece (0-6):\n")
+                    f"{player_one.capitalize()},"
+                    "choose a column to drop a piece (0-6):\n")
                 if validate_data(user_choice):
                     col = int(user_choice)
                     if board[5][col] == 0:
@@ -143,16 +154,20 @@ def main():
                         print(np.flip(board, 0))
                         winning_move(board, 1)
                         if winning_move(board, 1):
-                            cprint(f"{player_one.capitalize()} wins!!!!", "green")
-                            cprint(f"{player_two.capitalize()} unlucky!!!!", "red")
+                            cprint(f"{player_one.capitalize()}"
+                                   " wins!!!!", "green")
+                            cprint(f"{player_two.capitalize()}"
+                                   " unlucky!!!!", "red")
                             game_over = True
                         break
                     else:
-                        cprint("uh oh! Choose a column that is full of pieces", "red")
+                        cprint("uh oh! Choose a column that"
+                               " is full of pieces", "red")
 
             else:
                 user_choice = input(
-                    f"{player_two.capitalize()} choose a column to drop a piece (0-6):\n")
+                    f"{player_two.capitalize()} choose a column"
+                    " to drop a piece (0-6):\n")
                 if validate_data(user_choice):
                     col = int(user_choice)
                     if board[ROW_NUM-1][col] == 0:
@@ -161,13 +176,15 @@ def main():
                         print(np.flip(board, 0))
                         winning_move(board, 2)
                         if winning_move(board, 2):
-                            cprint(f"{player_two.capitalize()} wins!!!!", "green")
-                            cprint(f"Unlucky, {player_one.capitalize()}!!!", "red")
+                            cprint(f"{player_two.capitalize()}"
+                                   " wins!!!!", "green")
+                            cprint(f"Unlucky, {player_one.capitalize()}"
+                                   "!!!", "red")
                             game_over = True
                         break
                     else:
                         cprint("uh oh! Choose a column that "
-                            "isn't full of pieces", 'red')
+                               "isn't full of pieces", 'red')
 
         turn += 1
         turn = turn % 2
@@ -177,11 +194,13 @@ def main():
             cprint("   G A M E    O V E R", 'yellow')
             cprint("*************************", 'yellow')
             cprint("*************************", 'yellow')
-            continue_game = input("Would you like to play again? Y/N \n").lower()
+            continue_game = input("Would you like to play again?"
+                                  " Y/N \n").lower()
             if continue_game == "y":
                 game_over = False
                 start_game()
             else:
                 print("Thank you for playing!")
+
 
 main()
