@@ -75,7 +75,7 @@ def validate_data(value):
             raise ValueError(f"You can only choose a "
                              "column from 0 and upto 6")
     except ValueError as e:
-        cprint(f"Invalid data: {e}, please try again.\n", 'red')
+        cprint(f"You must choose a number (0,1,2,3,4,5,6)! Please try again.\n", 'red')
         return False
 
     return True
@@ -84,7 +84,7 @@ def validate_data(value):
 def next_row(board, col):
     """ looking for the next available row on the column "
         "that the user selected. An available row will "
-        "have a value fo 0 which will be changed to the users number"""
+        "have a value of 0 which will be changed to the users number"""
     for row in range(ROW_NUM):
         if board[row][col] == 0:
             return row
