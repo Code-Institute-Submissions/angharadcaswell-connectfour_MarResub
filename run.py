@@ -167,8 +167,8 @@ while not game_over:
         cprint("   G A M E    O V E R", 'yellow')
         cprint("*************************", 'yellow')
         cprint("*************************", 'yellow')
-        continue_game = input("Would you like to play again? Y/N \n")
-        if continue_game == "Y":
+        continue_game = input("Would you like to play again? Y/N \n").lower()
+        if continue_game == "y":
             game_over = False
             start_game()
         else:
